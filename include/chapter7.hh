@@ -16,8 +16,8 @@
 #include <iostream>
 #include <vector>
 
-#ifndef CHAPTER6_HH_INCLUDED
-#  define CHAPTER6_HH_INCLUDED
+#ifndef CHAPTER7_HH_INCLUDED
+#  define CHAPTER7_HH_INCLUDED
 
 namespace chapter7 {
 void getInputVariables(int &, int &);
@@ -69,4 +69,4 @@ inline namespace chapter7_debug {
 
 } // namespace chapter7
 
-#endif // !CHAPTER6_HH_INCLUDED
+#endif // !CHAPTER7_HH_INCLUDED
