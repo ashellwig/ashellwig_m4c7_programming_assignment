@@ -14,23 +14,4 @@
  */
 
 #include "../include/chapter7.hh"
-#include <cmath>
 #include <iostream>
-
-void chapter7::getInputVariables(int &windSpeed, int &temperature) {
-  std::cout << "Enter wind speed in miles per hour: ";
-  std::cin >> windSpeed;
-  std::cout << "Enter temperature in degree Fahrenheit: ";
-  std::cin >> temperature;
-  std::cout << '\n';
-  std::cout << std::endl;
-}
-
-int chapter7::calculateWindchill(int windSpeed, int temperature) {
-
-  int windchill = 35.74 + (0.6215 * temperature) -
-                  (35.75 * std::pow(windSpeed, 0.16)) +
-                  (0.4275 * temperature * (std::pow(windSpeed, 0.16)));
-
-  return windchill;
-}

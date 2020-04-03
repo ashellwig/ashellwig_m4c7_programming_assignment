@@ -20,8 +20,6 @@
 #  define CHAPTER7_HH_INCLUDED
 
 namespace chapter7 {
-void getInputVariables(int &, int &);
-int calculateWindchill(int, int);
 
 // -----------------------------------------------------------------------------
 // -------------------------Begin Debug-Related Macros--------------------------

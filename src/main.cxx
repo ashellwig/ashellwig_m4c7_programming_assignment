@@ -13,12 +13,9 @@
  */
 
 #include "../include/chapter7.hh" // calculateWindchill, getInputVariables
-#include "../include/cxxopts/cxxopts.hpp"  // Command line arguments
 #include "../include/general_functions.hh" // pauseprompt
 #include <iostream>                        // cin, cout
 #include <string>                          // std::string
-
-using namespace chapter7::chapter7_debug;
 
 /**
  * @brief Performs the steps to execute the main application.
