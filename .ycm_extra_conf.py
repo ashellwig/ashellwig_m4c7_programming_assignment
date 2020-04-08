@@ -22,9 +22,9 @@ def set_system_includes(flags: List):
         '/usr/include'
     ]
 
-    for i in system_include_paths[i]:
+    for i in system_include_paths.:
         flags.append('-isystem')
-        flags.append(i)
+        flags.extend(i)
 
 def set_project_includes(flags: List):
   project_include_paths = [
@@ -35,7 +35,7 @@ def set_project_includes(flags: List):
   ]
 
   for i in project_include_paths[i]:
-    flags.append(i)
+    flags.extend(i)
 
 flags = [
   '-Wall',
