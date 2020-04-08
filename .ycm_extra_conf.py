@@ -11,22 +11,34 @@ SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 
 database = None
 
-def set_system_includes(flags: List):
+def set_system_includes(flags: List) -> List:
+    updatedflags = []
+
+    for item in range(len(flags)):
+      updatedflags.append(flags[item])
+
     system_include_paths = [
-        '/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0',
-        '/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu',
-        '/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward',
+        '/usr/include/c++/9.3.0',
+        '/usr/include/c++/9.3.0/x86_64-pc-linux-gnu',
+        '/usr/include/c++/9.3.0/backward',
         '/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include',
         '/usr/local/include',
         '/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed',
         '/usr/include'
     ]
 
-    for i in system_include_paths.:
-        flags.append('-isystem')
-        flags.extend(i)
+    for i in range(len(system_include_paths)):
+        updatedflags.append('-isystem')
+        updatedflags.append(system_include_paths[i])
 
-def set_project_includes(flags: List):
+    return updatedflags
+
+def set_project_includes(flags: List) -> List:
+  updatedflags = []
+
+  for i in range(len(flags)):
+    updatedflags.append(flags[i])
+
   project_include_paths = [
     '-Iinclude',
     '-Iinclude/catch2',
@@ -34,10 +46,12 @@ def set_project_includes(flags: List):
     '-Iinclude/fakeit'
   ]
 
-  for i in project_include_paths[i]:
-    flags.extend(i)
+  for i in range(len(project_include_paths)):
+    updatedflags.append(project_include_paths[i])
 
-flags = [
+  return updatedflags
+
+compilerflags = [
   '-Wall',
   '-Wextra',
   '-Werror',
@@ -50,8 +64,9 @@ flags = [
   'c++'
 ]
 
-set_system_includes(flags)
-set_project_includes(flags)
+systemincludeflags = set_system_includes(compilerflags)
+
+flags = set_project_includes(systemincludeflags)
 
 
 compilation_database_folder = ''

@@ -15,3 +15,10 @@
 
 #include "../include/chapter7.hh"
 #include <iostream>
+#include <string>
+
+void sayHello(std::string name) {
+  std::cout << "Hello, " << name << "!" << std::endl;
+  std::cin.ignore();
+}
+
