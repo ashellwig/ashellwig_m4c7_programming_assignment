@@ -181,3 +181,4 @@ def PythonSysPath( **kwargs ):
 
   sys_path.append( p.join( DIR_OF_THIRD_PARTY, 'jedi_deps', 'numpydoc' ) )
   return sys_path
+

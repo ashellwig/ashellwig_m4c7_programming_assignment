@@ -21,6 +21,11 @@
  * @brief Performs the steps to execute the main application.
  */
 int main() {
+  verbose_print("Starting program for chapter 7 assignment.");
+
+  std::string studentData;
+
+  chapter7::printStudentData(studentData);
 
   // "Press enter to continue..."
   general_functions::pauseprompt();

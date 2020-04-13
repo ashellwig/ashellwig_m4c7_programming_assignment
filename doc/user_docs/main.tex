@@ -43,13 +43,16 @@
   \usepackage{mdframed}               % Colored box environments
   \usepackage{float}                  % Floating Environments 
   \usepackage{aliascnt}               %
-  % \usepackage[                        % Bibliography management
-    % backend=biber,%
-    % style=apa%
-  % ]{biblatex}
+  \usepackage{multirow}               % Multiple rows in tables
+  \usepackage[                        % Bibliography management
+    backend=biber,%
+    style=apa%
+  ]{biblatex}
 
   % Bibliography Setup
-  % \addbibresource{main.bib}
+  \addbibresource{main.bib}
+  \DeclareBibliographyCategory{consulted}
+  \addtocategory{consulted}{cpp:getline}
   % \newcommand{\CiteSection}[2]{%
     % (\autocite{#1}, ~\S {#1})%
   % }
@@ -331,6 +334,20 @@ cd ~/Downloads/ashellwig_m4c7_programming_assignment/out/bin
           (\texttt{./ashellwig\_m4c7\_programming\_assignment}).
 
 
+  % Bibliography
+  \newpage
+  \nocite{*}
+  \printbibliography[%
+    heading=bibintoc,%
+    title={Works Cited},%
+    notcategory={consulted}%
+  ]{}
+  \printbibliography[%
+    heading=bibintoc,%
+    title={Works Consulted},%
+    category={consulted}%
+  ]{}
+
   % Appendix
   \appendix
   \newpage
@@ -375,7 +392,8 @@ cd ~/Downloads/ashellwig_m4c7_programming_assignment/out/bin
     \newpage
     \section{String Functions}\label{app:stringfuncs}
       The following functions should be used rather than the [] operator
-        to access string elements, taken from \S~7-3a Table 7-1.
+        to access string elements, taken from \S~7-3a Table 7-1
+        \parencite[\S~7-3a]{textbook}.
 
       \begin{figure}[H]
         \centering
@@ -394,5 +412,5 @@ cd ~/Downloads/ashellwig_m4c7_programming_assignment/out/bin
         \caption{Textbook Table 7-1 (Pt 2)}
         \includegraphics[width=\textwidth]{stringfuncs3.png}
       \end{figure}
-\end{document}\caption{Test Output}
+\end{document}
 
