@@ -271,8 +271,55 @@ Press any key to continue...
       \caption{Chapter 7 Program Algorithm}
       \vspace{12pt}
       \begin{algorithmic}[1]
+        \Function{obscureData}{$inputData$}
+          \State $outputData\gets\ inputData$
+          \State $position\gets\ 0$
+          \State
+          \While{$true$}
+            \State $firstSpace\gets\ $\Call{findChar}{$\text{`` ''}$}
+              \Comment{First space in string should be before last name}
+            \State $position\gets\ $
+              \Call{findChar}{$\text{`` ''}$, $firstSpace+1$} $+1$
+              \Comment{After the second space is our SSN}
+            \State\State
+              $($\Call{replace}{$position, \text{xxx-xx-xxxx}$}$)*11$
+              \Comment{Replace the next 11 characters}
+            \State $position\pluseq 10$
+              \Comment{%
+                Advance position so we don`t replace the same substring again%
+              }
+            \State\Comment{Skip the next two spaces so we hit our password}
+            \State $position\gets $\Call{findChar}{$\text{`` ''}$, $position+1$}
+            \State $position\gets $\Call{findChar}{$\text{`` ''}$, $position+1$}
+            \State\State
+            \State $position\pluseq 1$\Comment{Replace the next char, not space}
+            \While{$position\ <\ $ \Call{lengthOf}{outputData}}
+              \Comment{Replace the characters from pos$\rightarrow$end}
+              \State
+                \Call{replace}{$position, \text{x}$}
+                \State $positon\pluseq 1$
+              \State
+              \If{$position =\ $\Call{lengthOf}{outputData}}
+                \State\Call{exitLoop}{}
+              \EndIf
+            \EndWhile
+          \EndWhile
+          \State\State
+          \Return $outputData$
+            \Comment{Return our modified string}
+        \EndFunction
+        \State
         \Procedure{main}{}
-          \State $num\gets 0$
+          \State $studentData\gets\ \text{``\textbackslash0x''}$
+          \State\State
+            \Call{toOutput}{``Enter a student's name, social security number,
+              user id, and password in one line:''}
+          \State\State
+            \Call{setFromIO}{$stdin$,$studentData$}
+          \State
+          \State $outData\gets\ $\Call{obscureData}{$studentData$}
+          \State\State
+            \Call{toOutput}{$outData$}
         \EndProcedure
       \end{algorithmic}
       \label{alg}
