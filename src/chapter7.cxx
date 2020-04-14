@@ -51,12 +51,16 @@ void chapter7::obscureStudentData(std::string &studentData) {
     // Replace the characters we find until the end with 'x'
     if (position == std::string::npos)
       break;
-    position += 1;
-    studentData.replace(position, 1, "x");
-    position += 1;
-    if (position == std::string::npos)
-      break;
+
+    while (position < studentData.length()) {
+      position += 1;
+      studentData.replace(position, 1, "x");
+      position += 1;
+      if (position == std::string::npos)
+        break;
+    }
   }
+
   if (position == std::string::npos)
     return;
 }
