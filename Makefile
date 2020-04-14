@@ -34,7 +34,7 @@ LFLAGS := \
 # --- Test Variables ---
 TEST_PROGRAM := out/bin/test
 TEST_SRC := test/catch_main.cxx src/chapter7.cxx
-TEST_INCLUDES := -isystem include/catch2 -Iinclude
+TEST_INCLUDES := -isystem include/catch2 -Iinclude -Itest/include
 TEST_OBJS := $(addprefix out/obj/test/, $(notdir $(TEST_SRC:.cxx=.o)))
 TEST_OBJS += out/obj/test/chapter7.o
 TEST_CXXFLAGS := \

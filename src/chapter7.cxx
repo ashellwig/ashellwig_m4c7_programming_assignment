@@ -17,6 +17,10 @@
 #include <iostream>
 #include <string>
 
+std::string chapter7::StudentData::getInputString() const {
+  return this->m_inputString;
+}
+
 void chapter7::StudentData::getData(std::string &studentData) {
   std::cout << "Enter a student's name, social security number, user id, and "
                "password in one line:"

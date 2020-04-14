@@ -30,6 +30,7 @@
   "C_Cpp.default.compilerArgs": [
     "-std=gnu++2a",
     "-Iinclude",
+    "-Itest/include",
     "-isystem include/catch2",
     "-isystem include/cxxopts",
     "-isystem include/fakeit"

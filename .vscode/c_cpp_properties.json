@@ -43,6 +43,7 @@
         "-x",
         "c++",
         "-Iinclude",
+        "-Itest/include",
         "-isystem include/catch2",
         "-isystem include/cxxopts",
         "-isystem include/fakeit"

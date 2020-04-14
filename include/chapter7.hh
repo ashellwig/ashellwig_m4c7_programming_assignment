@@ -44,6 +44,7 @@ public:
   void getData(std::string &);
   std::string obscureData(std::string);
   void printObscuredStudentData();
+  std::string getInputString() const;
 
 private:
   std::string &m_inputString;
