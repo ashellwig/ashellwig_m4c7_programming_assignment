@@ -52,9 +52,11 @@ void chapter7::obscureStudentData(std::string &studentData) {
     if (position == std::string::npos)
       break;
 
+    position += 1;
+
     while (position < studentData.length()) {
-      position += 1;
       studentData.replace(position, 1, "x");
+      position += 1;
       if (position == std::string::npos)
         break;
     }
