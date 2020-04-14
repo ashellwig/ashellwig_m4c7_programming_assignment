@@ -17,8 +17,7 @@
 #include <iostream>
 #include <string>
 
-void chapter7::getStudentData(std::string &studentData) {
-  verbose_print("Prompting user...");
+void chapter7::StudentData::getData(std::string &studentData) {
   std::cout << "Enter a student's name, social security number, user id, and "
                "password in one line:"
             << std::endl;
@@ -26,19 +25,19 @@ void chapter7::getStudentData(std::string &studentData) {
   std::getline(std::cin, studentData);
 }
 
-void chapter7::obscureStudentData(std::string &studentData) {
+std::string chapter7::StudentData::obscureData(std::string inputData) {
   size_t position = 0;
 
+  std::string studentData = inputData;
+
   while (true) {
+    // Find the location of the first space in the data. This should be the
+    // separation of the first and last name.
     size_t firstSpace = studentData.find_first_of(' ', position);
     if (firstSpace == std::string::npos)
       break;
     position = studentData.find_first_of(' ', firstSpace + 1) + 1;
 
-    // Exit the loop if there are no spaces found
-    if (position == std::string::npos) {
-      break;
-    }
     // First and last name will give us 2 spaces before the social security
     // number and the SSN should be 11 characters long.
     studentData.replace(position, 11, "xxx-xx-xxxx");
@@ -49,11 +48,7 @@ void chapter7::obscureStudentData(std::string &studentData) {
     position = studentData.find_first_of(' ', position + 1);
 
     // Replace the characters we find until the end with 'x'
-    if (position == std::string::npos)
-      break;
-
     position += 1;
-
     while (position < studentData.length()) {
       studentData.replace(position, 1, "x");
       position += 1;
@@ -63,12 +58,13 @@ void chapter7::obscureStudentData(std::string &studentData) {
   }
 
   if (position == std::string::npos)
-    return;
+    return studentData;
+
+  return studentData;
 }
 
-void chapter7::printStudentData(std::string studentData) {
-  getStudentData(studentData);
-  obscureStudentData(studentData);
+void chapter7::StudentData::printObscuredStudentData() {
+  std::string hiddenData = obscureData(this->m_inputString);
 
-  std::cout << studentData << std::endl;
+  std::cout << hiddenData << std::endl;
 }

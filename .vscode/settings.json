@@ -9,6 +9,10 @@
     "editor.formatOnSave": true
   },
   /* C and C++ */
+  "C_Cpp.autoAddFileAssociations": true,
+  "C_Cpp.configurationWarnings": "Enabled",
+  "C_Cpp.default.enableConfigurationSquiggles": true,
+  "C_Cpp.default.configurationProvider": "${default}",
   "clang-format.language.cpp.style": "file",
   "clang-format.style": "file",
   "[cpp]": {
@@ -24,7 +28,7 @@
   "C_Cpp.default.cppStandard": "c++20",
   "C_Cpp.default.compilerPath": "/usr/bin/g++",
   "C_Cpp.default.compilerArgs": [
-    "-std=gnu++20",
+    "-std=gnu++2a",
     "-Iinclude",
     "-isystem include/catch2",
     "-isystem include/cxxopts",
@@ -40,7 +44,7 @@
     "@copyright Copyright (c) {year}"
   ],
   "doxdocgen.file.versionTag": "@version 0.1",
-  "doxdocgen.generic.authorTag": "@author {author} ({email})",
+  "doxdocgen.generic.authorTag": "@author {author} <{email}>",
   /* Latex */
   "[latex]": {
     "editor.formatOnPaste": false,
@@ -133,7 +137,9 @@
   ],
   "cSpell.words": [
     "autoreconf",
-    "latexmk"
+    "dndebug",
+    "latexmk",
+    "wpragmas"
   ],
   /* Files */
   "files.associations": {

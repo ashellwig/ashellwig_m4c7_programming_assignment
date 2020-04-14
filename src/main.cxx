@@ -14,22 +14,22 @@
 
 #include "../include/chapter7.hh" // calculateWindchill, getInputVariables
 #include "../include/general_functions.hh" // pauseprompt
-#include <iostream>                        // cin, cout
 #include <string>                          // std::string
+
+using chapter7::StudentData;
 
 /**
  * @brief Performs the steps to execute the main application.
  */
 int main() {
-  verbose_print("Starting program for chapter 7 assignment.");
+  std::string inputString;
 
-  std::string studentData;
+  StudentData studentData(inputString);
 
-  chapter7::printStudentData(studentData);
+  studentData.printObscuredStudentData();
 
   // "Press enter to continue..."
   general_functions::pauseprompt();
-  std::cin.ignore();
 
   // Return with exit code 0 if all goes well
   return 0;

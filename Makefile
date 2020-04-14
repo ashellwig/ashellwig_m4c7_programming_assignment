@@ -1,7 +1,7 @@
 # vim: set ts=2 sw=2 ft=sh:
 ## Module 4 Chapter 7 Program
 ## Ashton S. Hellwig
-## Date: 02 April 2020
+## Date: 14 April 2020
 ## Instructor: Jeffrey Hemmes
 ## Course:
 ##   [CSC160] Introduction to Programming Langauges (C++)

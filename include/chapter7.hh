@@ -4,7 +4,7 @@
  * @author Ashton Scott Hellwig (ahellwig@student.cccs.edu)
  * @brief This file contains the prototypes required to
  * compute the data requested in the assignment.
- * @date 2020-04-02
+ * @date 2020-04-12
  *
  * Assignment: Module 4 Chapter 7 Programming Assignment
  * Description: This file contains the chapter7 namespace for the assigned
@@ -14,7 +14,6 @@
  */
 
 #include <cstdio>
-#include <exception>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -23,31 +22,6 @@
 #  define CHAPTER7_HH_INCLUDED
 
 namespace chapter7 {
-
-void getStudentData(std::string &);
-void obscureStudentData(std::string &);
-void printStudentData(std::string);
-
-// -----------------------------------------------------------------------------
-// -------------------------Begin Debug-Related Macros--------------------------
-// -----------------------------------------------------------------------------
-
-/**
- * @brief Provides exception types for additional debugging information.
- */
-inline namespace exceptions {
-class InputException : public std::exception {
-public:
-  virtual const char *what() const throw() {
-    return "Cannot have first input higher than the second.";
-  }
-};
-} // namespace exceptions
-
-/**
- * @brief Defines macros for outputting additional debugging information.
- */
-inline namespace chapter7_debug {
 #  ifndef DEBUG
 #    define DEBUG 0
 #    ifdef NDEBUG
@@ -57,20 +31,23 @@ inline namespace chapter7_debug {
 #    define DEBUG 1
 #  endif // !DEBUG
 
-#  ifdef DEBUG
-/**
- * @brief Prints the output of a function call when it is sent to stderr rather
- * than stdout. Use for debugging assistance.
- */
-#    define verbose_print(...)                                                 \
-      char message[150];                                                       \
-      std::sprintf(message, __VA_ARGS__);                                      \
-      std::cerr << "[" << __FILE__ << "]: "                                    \
-                << "[" << __PRETTY_FUNCTION__ << "]: "                         \
-                << "[line:" << __LINE__ << "] >> " << message << std::endl;
-
+#  if (DEBUG == 1)
+#    include "ashwig_debug.hh"
 #  endif // DEBUG
-} // namespace chapter7_debug
-} // namespace chapter7
+
+class StudentData {
+public:
+  StudentData(std::string &userInput) : m_inputString(userInput) {
+    getData(m_inputString);
+  };
+
+  void getData(std::string &);
+  std::string obscureData(std::string);
+  void printObscuredStudentData();
+
+private:
+  std::string &m_inputString;
+};
 
 #endif // !CHAPTER7_HH_INCLUDED
+} // namespace chapter7
